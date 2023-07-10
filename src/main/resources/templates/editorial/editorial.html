@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="~{layout/layout :: head}">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-gauge me-2"></i>Editoriales</h4>
+            </nav>
+            <div class="container mt-3">
+                <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i></button>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-bordered" id="tablita">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">EDITORIAL</th>
+                                    <th scope="col">PAIS</th>
+                                    <th scope="col">ESTADO</th>
+                                    <th scope="col" colspan="2" class="text-center">ACCION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablita"> 
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Autor</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">               
+                                <div class="mb-3">                                    
+                                    <label class="col-form-label" for="nombre">Nombre:</label>
+                                    <input type="text" class="form-control" name="nombre" id="nombre">
+                                    <input type="hidden" id="id" name="id">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="col-form-label" for="pais">Pais:</label>
+                                    <input type="text" class="form-control" id="pais" name="pais">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-1">Estado: </label>
+                                    <div class="mb-1 d-flex">
+                                        <div class="form-check form-switch ms-3">
+                                            <input class="form-check-input" type="radio" role="switch" name="estado" value="true" id="estado1" checked>
+                                            <label class="form-check-label" for="estado1">Activo</label>                        
+                                        </div>
+                                        <div class="form-check form-switch ms-3">
+                                            <input class="form-check-input" type="radio" role="switch" name="estado" value="false" id="estado2">
+                                            <label class="form-check-label" for="estado2">Desactivo</label>                        
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+        <script th:src="@{/js/editorial.js}"></script>
+    </th:block>
+</body>
+</html>
